@@ -1,18 +1,20 @@
-// building zomato api call
-// let queryUrl = 
-if (navigator.geolocation) {
-    // geolocation is available
-    console.log('working');
-  } 
-  else {
-    // geolocation is not supported
-    console.log('not working');
-  }
+// getting user lat and long 
   navigator.geolocation.getCurrentPosition(
-
     // Success callback
     function(position) {
       console.log(position);
+      // building zomato api call to 
+    let userLat = position.coords.latitude;
+    let userLong = position.coords.longitude;
+    let queryUrl = "https://developers.zomato.com/api/v2.1/search?lat=" + userLat + '& lon=' + userLong;
+    $.ajax({
+        url: queryUrl,
+        method: "GET",
+        headers: {"user-key": "a0916e41597909e8faa9dff1a09e8971"},
+        dataType: "json",
+    }).then(function(response){
+        console.log(response);
+    })
         /*
         position is an object containing various information about
         the acquired device location:
