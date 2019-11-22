@@ -1,3 +1,10 @@
+// TODO: get user lat and long.
+//       use lat and long to get cuisine types in city or pre defined radius
+//       use cusine type and lat/long to generate list of places
+//       display places dynamicaly in cards with small amount of info
+//       if card is clicked launch modal with more detailed info
+//       ???????????
+
 // getting user lat and long 
   navigator.geolocation.getCurrentPosition(
     // Success callback
@@ -6,7 +13,8 @@
       // building zomato api call to 
     let userLat = position.coords.latitude;
     let userLong = position.coords.longitude;
-    let queryUrl = "https://developers.zomato.com/api/v2.1/search?lat=" + userLat + '& lon=' + userLong;
+    let userCuisine = 'american'
+    let queryUrl = "https://developers.zomato.com/api/v2.1/search?lat=" + userLat + '& lon=' + userLong + 'cuisines=' + userCuisine;
     $.ajax({
         url: queryUrl,
         method: "GET",
