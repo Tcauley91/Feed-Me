@@ -6,33 +6,56 @@
 //       add modal if user declines location services saying 'we need your location to hekp you decide'
 //       
 //       ???????????
-
+let goingOut = document.getElementById('goingOutImg');
+goingOut.addEventListener('click', ()=> {
 // getting user lat and long 
   navigator.geolocation.getCurrentPosition(
     // Success callback
-    function(position) {
-        let userLat = position.coords.latitude;
-        let userLong = position.coords.longitude;
-        buildApiUrl(userLat, userLong);
-    },
-    // Optional error callback
-    function(error){
-
-        /* 
-        In the error object is stored the reason for the failed attempt:
-
-        error = {
-            code - Error code representing the type of error 
-                    1 - PERMISSION_DENIED
-                    2 - POSITION_UNAVAILABLE
-                    3 - TIMEOUT
-
-            message - Details about the error in human-readable format.
+        function(position) {
+            let userLat = position.coords.latitude;
+            let userLong = position.coords.longitude;
+            buildApiUrl(userLat, userLong);
+        },
+        // Optional error callback
+        function(error){
+            console.log(error);
+            if(error.code === 1){
+                deniedmodal();
+            }else{
+                wentWrongModal();
+            }
         }
-        */
+    )
+});
+function deniedmodal(){
+    console.log('denied');
+    let modalContainer = document.createElement('div');
+    modalContainer.classList.add('modal');
+    let modalContent = document.createElement('div');
+    modalContent.innerText = 'Oh uh, we need your location to help you decide. Please allow us to use your location';
+    modalContainer.append(modalContent);
+    document.body.append(modalContainer);
 
+    window.onclick = function(event) {
+        if (event.target !== modalContainer) {
+          modalContainer.style.display = "none";
+        }
     }
-);
+}
+function wentWrongModal(){
+    let modalContainer = document.createElement('div');
+    modalContainer.classList.add('modal');
+    let modalContent = document.createElement('div');
+    modalContent.innerText = 'Oh uh, something went wrong. Please try again.';
+    modalContainer.append(modalContent);
+    document.body.append(modalContainer);
+
+    window.onclick = function(event) {
+        if (event.target !== modalContainer) {
+          modalContainer.style.display = "none";
+        }
+    }
+}
 function buildApiUrl(userLat, userLong){
     // building zomato api call
     // let miles = 10;
