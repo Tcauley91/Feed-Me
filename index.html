@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!-- Linking the Foundation CSS file to the HTML page -->
+    <link rel="stylesheet" href="assets/foundation/css/foundation.css">
+    <link rel="stylesheet" href="assets/foundation/css/app.css">
+    <title>FeedMe? | Home Page</title>
 </head>
+
 <body>
-    
+    <!-- Desktop Navigation -->
+    <nav class="top-bar nav-desktop">
+        <div class="wrap">
+            <div class="top-bar-left">
+                <h1 class="website-title"><strong>FeedMe?</strong></h1>
+            </div>
+            <div class="top-bar-right">
+                <ul class="menu">
+                    <li class="menu-home-btn"><a href="#">Home</a></li>
+                    <li class="menu-about-btn"><a href="#">About Us</a></li>
+                    <li class="menu-review-btn"><a href="#">Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main body container that will be used on all screen displays -->
+    <div class="body-container">
+        <!-- Fist initial home screen page will always be shown -->
+        <div class="home-screen" style="display: block;">
+            <h2>Select Your Food Options</h2>
+            <hr>
+            <br>
+
+            <div class="row">
+                <div class="column">
+                    <img src="assets/images/out-to-eat.jpg" alt="Goin-Out" style="width:100%">
+                    <div class="tag">
+                        <h3>Eat Out?</h3>
+                    </div>
+                </div>
+                <div class="column">
+                    <img src="assets/images/home-meal.jpg" alt="Home-meal" style="width:100%">
+                    <div class="tag">
+                            <h3>Stay In?</h3>
+                        </div>
+                </div>
+
+            </div>
+            <!-- Linking both the main JS & JQuery files from Foundation in the HTML page -->
+            <script src="assets/foundation/js/foundation.js"></script>
+            <script src="assets/foundation/js/jquery.js"></script>
+            <script src="assets/foundation/js/app.js"></script>
 </body>
+
 </html>
