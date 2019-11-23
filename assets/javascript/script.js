@@ -6,8 +6,7 @@
 //       add modal if user declines location services saying 'we need your location to hekp you decide'
 //       
 //       ???????????
-let goingOut = document.getElementById('goingOutImg');
-goingOut.addEventListener('click', ()=> {
+document.getElementById('goingOutImg').addEventListener('click', ()=> {
 // getting user lat and long 
   navigator.geolocation.getCurrentPosition(
     // Success callback
@@ -29,15 +28,15 @@ goingOut.addEventListener('click', ()=> {
     )
 });
 function deniedmodal(){
-    console.log('denied');
     let modalContainer = document.createElement('div');
     modalContainer.classList.add('modal');
     let modalContent = document.createElement('div');
-    modalContent.innerText = 'Oh uh, we need your location to help you decide. Please allow us to use your location';
+    modalContent.innerText = 'Oh uh, we need your location to help you decide. Please allow us to use your location.';
     modalContainer.append(modalContent);
     document.body.append(modalContainer);
 
     window.onclick = function(event) {
+        console.log(event.target);
         if (event.target !== modalContainer) {
           modalContainer.style.display = "none";
         }

@@ -90,3 +90,7 @@ li{
     background-color: #ffeecc;
     color: black;
 }
+.modal{
+    background-color: #ffeecc;
+    border: 1px solid gray;
+}
