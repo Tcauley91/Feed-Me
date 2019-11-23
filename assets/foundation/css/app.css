@@ -1,0 +1,96 @@
+
+/*  */
+/*  */
+body{
+    background-color: #003311;
+}
+/* NAV-BAR STYLING */
+.wrap{
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: auto;
+    padding: 0%;
+}
+
+/* NAVBAR DESKTOP */
+.nav-desktop{
+    background-color: #734d26;
+    width: 100%;
+    height: 100px;
+    padding: 2% 2%;
+
+}
+.top-bar-right{
+    float: right;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.top-bar-left{
+    float: left;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.menu,
+li{
+    display:inline-block;
+    overflow: hidden;
+    text-align: center;
+    padding: 5px;
+}
+li a:hover {
+    background-color: white;
+  }
+li{
+    
+    font-size: 20px;
+    color: white;
+}
+.menu{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.body-container{
+    position: relative;
+    width: 90%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: wheat;
+    height: wrap;
+    text-align: center;
+}
+.home-screen{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+}
+.row{
+    width: 100%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.column{
+    width: 50%;
+    padding: 5px;
+    
+}
+.tag{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 2px 0px;
+    bottom: 70px;
+    width: 90%;
+    background-color: #ffeecc;
+    color: black;
+}
+.modal{
+    background-color: #ffeecc;
+    border: 1px solid gray;
+}
