@@ -28,9 +28,8 @@ document.getElementById('goingOutImg').addEventListener('click', ()=> {
             }
         )
     });
-    function deniedmodal(){
-        let deniedM = document.getElementById('Modal1');
-        //deniedM.style.display = "block";
+    //function deniedmodal(){
+    
     //     // let closeBtn = document.querySelector('.close-button');
     //     // closeBtn.onclick = function(){
     //     //     deniedM.style.display = "none"
