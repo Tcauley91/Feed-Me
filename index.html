@@ -1,43 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Linking the Foundation CSS file to the HTML page -->
-    <link rel="stylesheet" href="assets/foundation/css/foundation.css">
-    <link rel="stylesheet" href="assets/foundation/css/app.css">
-    <title>FeedMe? | Home Page</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fedd Me</title>
+  <link rel="stylesheet" href="assets/css/foundation.css">
+  <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
 <body>
-    <!-- Desktop Navigation -->
-    <nav class="top-bar nav-desktop">
-        <div class="wrap">
-            <div class="top-bar-left">
-                <h1 class="website-title"><strong>FeedMe?</strong></h1>
-            </div>
-            <div class="top-bar-right">
-                <ul class="menu">
-                    <li class="menu-home-btn"><a href="#">Home</a></li>
-                    <li class="menu-about-btn"><a href="#">About Us</a></li>
-                    <li class="menu-review-btn"><a href="#">Reviews</a></li>
-                </ul>
-            </div>
+  <!-- Desktop Navigation -->
+  <nav class="nav-bar">
+    <div class="logo">
+      <h1 class="website-title"><strong>FeedMe?</strong></h1>
+    </div>
+    <div class="home">
+      <button id="homeBtn" class="homeClassBtn"><i class="fi-home large"> Home</i></button>
+    </div>
+    </div>
+  </nav>
+  <!-- Main body container that will be used on all screen displays -->
+  <div class="body-container">
+    <!-- Fist initial home screen page will always be shown -->
+    <div class="home-screen" style="display: block;">
+      <h2>Select Your Food Options</h2>
+      <hr>
+      <br>
+      <div class="row" data-equalizer data-equalize-on="large" id="test-eq">
+        <div class="large-5 medium-5 columns">
+          <div class="callout" data-equalizer-watch>
+            <img src="assets/images/out-to-eat.jpg" alt="Goin-Out" id="goingOutImg">
+          </div>
         </div>
+<<<<<<< HEAD
+        <div class="large-2 medium-2 columns">
+          <h3 style="padding: 4px; text-align: center;"><strong>Or</strong></h3>
+        </div>
+        <div class="large-5 medium-5 columns">
+          <div class="callout" data-equalizer-watch>
+            <img src="assets/images/home-meal.jpg" alt="Home-meal">
+          </div>
+        </div>
+      </div>
+      <!-- stuff for modals -->
+      <div class="reveal" id="Modal1" data-reveal>
+        <h1>Awesome. I Have It.</h1>
+        <p class="lead">Your couch. It is mine.</p>
+        <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <script src="assets/js/vendor/jquery.js"></script>
+      <script src="assets/js/vendor/what-input.js"></script>
+      <script src="assets/js/vendor/foundation.js"></script>
+      <script src="assets/js/app.js"></script>
+=======
     </nav>
     <!-- Main body container that will be used on all screen displays -->
     <div class="body-container">
         <!-- Fist initial home screen page will always be shown -->
-        <div class="home-screen" style="display: block;">
+        <div class="home-screen">
             <h2>Select Your Food Options</h2>
             <hr>
             <br>
 
             <div class="row">
-                <div class="column">
-                    <img src="assets/images/out-to-eat.jpg" alt="Goin-Out" style="width:100%">
+                <div class="column" id="goingOutImg">
+                    <img src="assets/images/out-to-eat.jpg" alt="Goin-Out" style="width:100%; height:100%;">
                     <div class="tag">
                         <h3>Eat Out?</h3>
                     </div>
@@ -54,6 +87,8 @@
             <script src="assets/foundation/js/foundation.js"></script>
             <script src="assets/foundation/js/jquery.js"></script>
             <script src="assets/foundation/js/app.js"></script>
+            <script src="assets/javascript/script.js"></script>
+>>>>>>> 515b61925f2f4b32b44bbfa265e96a692dee9f35
 </body>
 
 </html>
