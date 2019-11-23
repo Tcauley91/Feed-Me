@@ -1,9 +1,3 @@
-
-/*  */
-/*  */
-/* body{
-    background-image: url("assets/images/background_image.jpg");
-} */
 /* NAV-BAR STYLING */
 /* NAVBAR DESKTOP */
 .nav-bar{
@@ -34,12 +28,13 @@
   }
 .body-container{
     position: relative;
-    width: 50%;
+    width: 57%;
     margin-top: 20px;
+    margin-bottom: 20px;
     padding-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: wheat;
+    background-color: transparent;
     height: wrap;
     text-align: center;
 }

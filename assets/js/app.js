@@ -1,10 +1,10 @@
 $(document).foundation()
-// TODO: get user lat and long.
+// TODO: 
 //       use lat and long to get cuisine types in city or pre defined radius
 //       use cusine type and lat/long to generate list of places
 //       display places dynamicaly in cards with small amount of info
 //       if card is clicked launch modal with more detailed info
-//       add modal if user declines location services saying 'we need your location to hekp you decide'
+//       
 //       
 //       ???????????
 document.getElementById('goingOutImg').addEventListener('click', ()=> {
@@ -28,38 +28,16 @@ document.getElementById('goingOutImg').addEventListener('click', ()=> {
             }
         )
     });
-    //function deniedmodal(){
-    
-    //     // let closeBtn = document.querySelector('.close-button');
-    //     // closeBtn.onclick = function(){
-    //     //     deniedM.style.display = "none"
-    //     // } 
-    //     // window.onclick = function(event) {
-    //     //     console.log(event.target);
-    //     //     if (event.target !== deniedM) {
-    //     //       deniedM.style.display = "none";
-    //     //     }
-    //     // }     
-          
-        
-    
-    //     // let modalContainer = document.createElement('div');
-        
+    function deniedmodal(){
+        document.getElementById('modalH').innerText = 'Uh oh';
+        document.getElementById('modalLead').innerText = 'We need your loaction to show you nearby restaurants. Please close this window and try again.';
+        $(Modal1).foundation('open');               
     }
-    // function wentWrongModal(){
-    //     let modalContainer = document.createElement('div');
-    //     modalContainer.classList.add('modal');
-    //     let modalContent = document.createElement('div');
-    //     modalContent.innerText = 'Oh uh, something went wrong. Please try again.';
-    //     modalContainer.append(modalContent);
-    //     document.body.append(modalContainer);
-    
-    //     window.onclick = function(event) {
-    //         if (event.target !== modalContainer) {
-    //           modalContainer.style.display = "none";
-    //         }
-    //     }
-    // }
+    function wentWrongModal(){
+        document.getElementById('modalH').innerText = 'Uh oh';
+        document.getElementById('modalLead').innerText = 'Something went wrong. Please close this window and try again.';
+        $(Modal1).foundation('open');
+    }
     function buildApiUrl(userLat, userLong){
         //building zomato api call
         let miles = 1;
