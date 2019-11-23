@@ -15,6 +15,7 @@ goingOut.addEventListener('click', ()=> {
             let userLat = position.coords.latitude;
             let userLong = position.coords.longitude;
             buildApiUrl(userLat, userLong);
+            console.log(userLat, userLong);
         },
         // Optional error callback
         function(error){
@@ -57,12 +58,12 @@ function wentWrongModal(){
     }
 }
 function buildApiUrl(userLat, userLong){
-    // building zomato api call
-    // let miles = 10;
-    // let radius = miles * 1609.34;
-    // console.log(radius);
-    let userCuisine = '25, 100';
-    let queryUrl = "https://developers.zomato.com/api/v2.1/search?lat=" + userLat + '&lon=' + userLong + '&cuisines=' + userCuisine + '&sort=rating&order=desc';
+    //building zomato api call
+    let miles = 1;
+    let radius = miles * 1609.34;
+    console.log(radius);
+    let userCuisine = '25';
+    let queryUrl = "https://developers.zomato.com/api/v2.1/search?lat=" + userLat + '&lon=' + userLong + '&cuisines=' + userCuisine + '&radius=' + radius + '&sort=rating&order=desc';
     $.ajax({
         url: queryUrl,
         method: "GET",
