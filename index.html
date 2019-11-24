@@ -8,11 +8,13 @@
   <title>Feed Me</title>
   <link rel="stylesheet" href="assets/css/foundation.css">
   <link rel="stylesheet" href="assets/css/app.css">
-  <style>body{
-    background-image: url("assets/images/background_image.jpg");
-    background-size: auto 100%;
-    background-attachment: fixed;
-}</style>
+  <style>
+    body {
+      background-image: url("assets/images/background_image.jpg");
+      background-size: auto 100%;
+      background-attachment: fixed;
+    }
+  </style>
 </head>
 
 <body>
@@ -29,32 +31,39 @@
   <div class="body-container">
     <!-- Fist initial home screen page will always be shown -->
     <div class="home-screen">
-      <h2>Select Your Food Options</h2>
+      <h2 id="contentHeader">Do you want to..</h2>
       <hr>
       <br>
       <div class="row" data-equalizer data-equalize-on="large" id="test-eq">
         <div class="large-5 medium-5 columns">
-          <div class="callout" data-equalizer-watch>
+          <div id='imgContainer' class="callout" data-equalizer-watch>
             <img src="assets/images/out-to-eat.jpg" alt="Goin-Out" id="goingOutImg">
             <div class="large-2 medium-2 columns">
               <h3 style="padding: 4px; text-align: center;"><strong>Or</strong></h3>
             </div>
-            <img src="assets/images/home-meal.jpg" alt="Home-meal">
+            <img src="assets/images/home-meal.jpg" alt="Home-meal" id='stayInImg'>
+            <!-- restaurants search dropdown menus -->
+            <div id="catOptions" class="hide cell medium-6">
+              <label>
+                <select id="catSelect" placeid="select" required><br>
+                  <option disabled selected value="">What kind of food are you in the mood for?</option>
+                </select>
+              </label>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-  </div>
   <!-- stuff for modals -->
   <div class="reveal" id="Modal1" data-reveal>
-    <h1 id="modalH" ></h1>
+    <h1 id="modalH"></h1>
     <p class="lead" id="modalLead">.</p>
     <button class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+
   <!-- Linking both the main JS & JQuery files from Foundation in the HTML page -->
   <script src="assets/js/vendor/jquery.js"></script>
   <script src="assets/js/vendor/what-input.js"></script>
