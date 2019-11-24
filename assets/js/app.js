@@ -15,11 +15,31 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
     navigator.geolocation.getCurrentPosition(
         // Success callback
         function (position) {
+            let cityID;
             userLat = position.coords.latitude;
             userLong = position.coords.longitude;
             // buildApiUrl(userLat, userLong);
             console.log(userLat, userLong);
-            renderOptions();
+            let queryUrl = `https://developers.zomato.com/api/v2.1/geocode?lat=${userLat}&lon=${userLong}`
+            $.ajax({
+                url: queryUrl,
+                method: "GET",
+                headers: { "user-key": "a0916e41597909e8faa9dff1a09e8971" },
+                dataType: "json",
+            }).then(function (response) {
+                console.log(response);
+                let cityID = response.location.city_id;
+                console.log(cityID);
+                cuisineCat(cityID);
+                document.getElementById('sortSelect').add(new Option('Distance', 'real_distance'));
+                document.getElementById('sortSelect').add(new Option('Populartiy', 'rating'));
+                document.getElementById('goingOutImg').classList.add('hide')
+                document.getElementById('stayInImg').classList.add('hide')
+                document.querySelector('h3').classList.add('hide');
+                document.getElementById('contentHeader').innerText = 'What are you in the mood for?';
+                document.getElementById('catOptions').classList.remove('hide');
+            })
+
         },
         // Optional error callback
         function (error) {
@@ -41,14 +61,14 @@ document.getElementById('searchBTN').addEventListener('click', () => {
     let order;
     let userCuisine = document.getElementById('catSelect').value;
     let userSort = document.getElementById('sortSelect').value;
-    if(userSort === 'rating'){
+    if (userSort === 'rating') {
         order = 'desc';
-    }else{
+    } else {
         order = 'asc';
     }
     console.log(userCuisine, userSort, order);
-    if(!!userCuisine && !!userSort){
-    renderPlaces(userLat, userLong, userCuisine, userSort, order);
+    if (!!userCuisine && !!userSort) {
+        renderPlaces(userLat, userLong, userCuisine, userSort, order);
     }
 })
 // api call get information about restaurants to be displayed later
@@ -56,7 +76,7 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
     let miles = 100;
     let radius = miles * 1609.34;
     console.log(radius);
-    let queryUrl = "https://developers.zomato.com/api/v2.1/search?lat=" + userLat + '&lon=' + userLong + '&cuisines=' + userCuisine + '&radius=' + radius + '&sort=' + userSort + '&order=' + order;
+    let queryUrl = `https://developers.zomato.com/api/v2.1/search?lat=${userLat}&lon=${userLong}&cuisines=${userCuisine}&radius=${radius}&sort=${userSort}&order=${order}`;
     $.ajax({
         url: queryUrl,
         method: "GET",
@@ -64,31 +84,23 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         dataType: "json",
     }).then(function (response) {
         console.log(response);
+
     })
     document.getElementById('catOptions').classList.add('hide');
 }
 // api call gets all food categories in the area around current lat&long
 // creates options for the dropdown
-function renderOptions() {
-    function cuisineCat(userLat, userLong) {
-        let queryUrl = "https://developers.zomato.com/api/v2.1/cuisines?lat=" + userLat + '&lon=' + userLong;
-        $.ajax({
-            url: queryUrl,
-            method: "GET",
-            headers: { "user-key": "a0916e41597909e8faa9dff1a09e8971" },
-            dataType: "json",
-        }).then(function (response) {
-            for (let i = 0; i < response.cuisines.length; i++) {
-                document.getElementById('catSelect').add(new Option(response.cuisines[i].cuisine.cuisine_name, response.cuisines[i].cuisine.cuisine_id));
-            }
-        })
-    }
-    cuisineCat();
-    document.getElementById('sortSelect').add(new Option('Distance', 'real_distance'));
-    document.getElementById('sortSelect').add(new Option('Populartiy', 'rating'));
-    document.getElementById('goingOutImg').classList.add('hide')
-    document.getElementById('stayInImg').classList.add('hide')
-    document.querySelector('h3').classList.add('hide');
-    document.getElementById('contentHeader').innerText = 'What are you in the mood for?';
-    document.getElementById('catOptions').classList.remove('hide');
+function cuisineCat(cityID) {
+    let queryUrl = `https://developers.zomato.com/api/v2.1/cuisines?city_id=${cityID}`;
+    $.ajax({
+        url: queryUrl,
+        method: "GET",
+        headers: { "user-key": "a0916e41597909e8faa9dff1a09e8971" },
+        dataType: "json",
+    }).then(function (response) {
+        console.log(response);
+        for (let i = 0; i < response.cuisines.length; i++) {
+            document.getElementById('catSelect').add(new Option(response.cuisines[i].cuisine.cuisine_name, response.cuisines[i].cuisine.cuisine_id));
+        }
+    })
 }
