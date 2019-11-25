@@ -62,9 +62,12 @@ select {
     font-size: 14px;
 }
 
-.cell {
+#showDiv {
     width: 100%;
-    display: inline-flex;
     justify-content: space-around;
     margin-top: 150px;
+}
+
+#select {
+    width: 50%;
 }
