@@ -9,16 +9,15 @@ $(document).foundation()
 //       ???????????
 let userLat;
 let userLong;
+let cityID;
 // onclick for going out to eat option
 document.getElementById('goingOutImg').addEventListener('click', () => {
     // getting user lat and long 
     navigator.geolocation.getCurrentPosition(
         // Success callback
         function (position) {
-            let cityID;
             userLat = position.coords.latitude;
             userLong = position.coords.longitude;
-            // buildApiUrl(userLat, userLong);
             console.log(userLat, userLong);
             let queryUrl = `https://developers.zomato.com/api/v2.1/geocode?lat=${userLat}&lon=${userLong}`
             $.ajax({
@@ -28,7 +27,7 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
                 dataType: "json",
             }).then(function (response) {
                 console.log(response);
-                let cityID = response.location.city_id;
+                cityID = response.location.city_id;
                 console.log(cityID);
                 cuisineCat(cityID);
                 document.getElementById('sortSelect').add(new Option('Distance', 'real_distance'));
@@ -39,7 +38,6 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
                 document.getElementById('contentHeader').innerText = 'What are you in the mood for?';
                 document.getElementById('catOptions').classList.remove('hide');
             })
-
         },
         // Optional error callback
         function (error) {
@@ -66,17 +64,13 @@ document.getElementById('searchBTN').addEventListener('click', () => {
     } else {
         order = 'asc';
     }
-    console.log(userCuisine, userSort, order);
     if (!!userCuisine && !!userSort) {
         renderPlaces(userLat, userLong, userCuisine, userSort, order);
     }
 })
 // api call get information about restaurants to be displayed later
 function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
-    let miles = 100;
-    let radius = miles * 1609.34;
-    console.log(radius);
-    let queryUrl = `https://developers.zomato.com/api/v2.1/search?lat=${userLat}&lon=${userLong}&cuisines=${userCuisine}&radius=${radius}&sort=${userSort}&order=${order}`;
+    let queryUrl = `https://developers.zomato.com/api/v2.1/search?lat=${userLat}&lon=${userLong}&cuisines=${userCuisine}&sort=${userSort}&order=${order}`;
     $.ajax({
         url: queryUrl,
         method: "GET",
@@ -88,7 +82,7 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
     })
     document.getElementById('catOptions').classList.add('hide');
 }
-// api call gets all food categories in the area around current lat&long
+// api call gets all food categories in the area
 // creates options for the dropdown
 function cuisineCat(cityID) {
     let queryUrl = `https://developers.zomato.com/api/v2.1/cuisines?city_id=${cityID}`;
