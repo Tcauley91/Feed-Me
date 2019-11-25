@@ -40,8 +40,68 @@
             <div class="large-2 medium-2 columns">
               <h3 style="padding: 4px; text-align: center;"><strong>Or</strong></h3>
             </div>
-            <img src="assets/images/home-meal.jpg" alt="Home-meal">
+            <img src="assets/images/home-meal.jpg" alt="Home-meal" id="stayInImg"> 
           </div>
+        </div>
+      </div>
+      <!-- Cuisine type input selector -->
+    <div class="cell medium-6" id="showDiv">
+      <div class=" cell medium-6" id="food-type" style=display:none>
+          <label>
+            <select id="select" required class="cuisineInput">
+              <option disabled selected value="Choose Cuisine">Choose Cuisine</option>
+              <option value="African">African</option>
+              <option value="American">American</option>
+              <option value="British">British</option>
+              <option value="Cajun">Cajun</option>
+              <option value="Caribbean">Caribbean</option>
+              <option value="Chinese">Chinese</option>
+              <option value="German">German</option>
+              <option value="Indian">Indian</option>
+              <option value="Italian">Italian</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Korean">Korean</option>
+              <option value="Mediterranean">Mediterranean</option>
+              <option value="Mexican">Mexican</option>
+              <option value="Thai">Thai</option>
+              <option value="Vietnamese">Vietnamese</option>
+            </select>
+          </label>
+        <!-- Allergy input selector -->
+        <label>
+            <select id="select" required class="allergyInput">
+              <option disabled selected value="Avoid Allergies">Avoid Allergies</option>
+              <option value="Dairy">Diary</option>
+              <option value="Egg">Egg</option>
+              <option value="Gluten">Gluten</option>
+              <option value="Grain">Grain</option>
+              <option value="Peanut">Peanut</option>
+              <option value="Seafood">Seafood</option>
+              <option value="Sesame">Sesame</option>
+              <option value="Shellfish">Shellfish</option>
+              <option value="Soy">Soy</option>
+              <option value="Sulfite">Sulfite(Sulfur)</option>
+              <option value="Tree Nut">Tree Nut</option>
+              <option value="Wheat">Wheat</option>
+            </select>
+          </label>
+          <!-- Diet Restriction input -->
+          <label>
+              <select id="select" required class="dietInput">
+                <option disabled selected value="Diet savvy">Diet Savvy</option>
+                <option value="Gluten Free">Gluten Free</option>
+                <option value="Ketogenic">Ketogenic</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+                <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Pescetarian">Pescetarian</option>
+                <option value="Paleo">Paleo</option>
+                <option value="Primal">Primal</option>
+                <option value="Whole30">Whole30</option>
+              </select>
+            </label>
+            <button type=submit class="button" id="feedMe">FEED ME!</button>
         </div>
       </div>
     </div>
@@ -61,6 +121,8 @@
   <script src="assets/js/vendor/what-input.js"></script>
   <script src="assets/js/vendor/foundation.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/app2.js"></script>
+
 </body>
 
 </html>
