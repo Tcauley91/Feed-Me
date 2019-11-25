@@ -9,28 +9,29 @@
   <link rel="stylesheet" href="assets/css/foundation.css">
   <link rel="stylesheet" href="assets/css/app.css">
   <style>
-    body {
-      background-image: url("assets/images/background_image.jpg");
-      background-size: auto 100%;
-      background-attachment: fixed;
-    }
+  body { 
+    background: url("assets/images/bg.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
   </style>
 </head>
 
 <body>
   <!-- Desktop Navigation -->
-  <nav class="nav-bar">
+  <nav class="top-bar">
     <div class="logo">
       <h1 class="website-title"><strong>FeedMe?</strong></h1>
     </div>
     <div class="home">
-      <button id="homeBtn" class="homeClassBtn"><i class="fi-home large"> Home</i></button>
+      <button id="homeBtn" class="button primary"><i class="fi-home large"> Home</i></button>
     </div>
   </nav>
   <!-- Main body container that will be used on all screen displays -->
   <div class="body-container">
     <!-- Fist initial home screen page will always be shown -->
-    <div class="home-screen">
       <h2 id="contentHeader">Do you want to..</h2>
       <hr>
       <br>
@@ -43,13 +44,13 @@
             </div>
             <img src="assets/images/home-meal.jpg" alt="Home-meal" id='stayInImg'>
             <!-- restaurants search dropdown menus -->
-            <div id="catOptions" class="hide cell medium-6">
+            <div id="catOptions" class="hide cell ">
               <label>
                 <select id="catSelect" placeid="select" required><br>
-                  <option disabled selected value="">What kind of food are you in the mood for?</option>
+                  <option disabled selected value="">Choose Cuisine</option>
                 </select>
                 <select id="sortSelect" placeid="select" required><br>
-                  <option disabled selected value="">How do you want to sort the results?</option>
+                  <option disabled selected value="">Sort by</option>
                 </select>
               </label>
               <a id="searchBTN" class="button">FEED ME!</a>
@@ -115,7 +116,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
   <!-- stuff for modals -->
   <div class="reveal" id="Modal1" data-reveal>

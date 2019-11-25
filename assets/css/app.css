@@ -1,9 +1,7 @@
-/* NAV-BAR STYLING */
-/* NAVBAR DESKTOP */
 .nav-bar{
     background-color: white;
     width: 100%;
-    height: 100px;
+    height: 10vh;
     padding: 2% 2%;
     border-bottom: 3px solid black;
 }
@@ -11,15 +9,14 @@
     display: none;
 }
 .home{
-    float: left;
+    float: right;
 }
 .logo{
-    position: fixed;
-    margin-left: 40%;
-    margin-right: auto;
-    margin-top: auto;
+    position: relative;
+    margin: 0 auto;
+    
 }
-.large {
+/* .large {
     font-size: 1.7rem;
     color: cornflowerblue;
 }
@@ -28,10 +25,11 @@
     border: 3px solid black;
     border-radius: 10px;
     padding: 3px;
-  }
+  } */
 .body-container{
     position: relative;
-    width: 57%;
+    width: 85vw;;
+    max-width: 784px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-bottom: 20px;
@@ -42,7 +40,7 @@
     text-align: center;
 }
 .home-screen{
-    width: 70%;
+    width: 80vw;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -51,6 +49,9 @@
 select {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    width: 50%;
+    width: 90%;
     border-radius: 0;
+}
+#imgContainer{
+    min-height: 30vh;
 }
