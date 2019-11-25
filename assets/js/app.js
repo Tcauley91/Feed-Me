@@ -1,4 +1,4 @@
-$(document).foundation()
+$(document).foundation();
 // TODO: 
 //       
 //       use cusine type and lat/long to generate list of places
