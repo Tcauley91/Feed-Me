@@ -19,7 +19,7 @@ $("#test-eq").hide() + $("#food-type").show();
     // // API Key
      let apiKey = "1bc689dd8d404710b20636ab06a5be1c";
     // // queryURL with search parameters and APPID
-     let queryURL = "https://api.spoonacular.com/recipes/search?&query=" + cuisine + allergy + diet + "&apiKey=" + apiKey; 
+     let queryURL = "https://api.spoonacular.com/recipes/search?&query=" + cuisine + "&allergy=" + allergy + "&diet=" + diet + "&apiKey=" + apiKey; 
     
     // ajax function for retreiving information
       $.ajax({
@@ -28,9 +28,6 @@ $("#test-eq").hide() + $("#food-type").show();
         ContentType: "application/json"
       })
       .then(function(response){
-
-
-
       console.log(response);
 
 
