@@ -7,6 +7,9 @@
     padding: 2% 2%;
     border-bottom: 3px solid black;
 }
+.hide{
+    display: none;
+}
 .home{
     float: left;
 }
@@ -45,12 +48,9 @@
     position: relative;
     text-align: center;
 }
-/* .row{
-    width: 100%;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+select {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    border-radius: 0;
 }
-.columns{
-    padding: 5px;
-} */
