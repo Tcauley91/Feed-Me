@@ -78,7 +78,7 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         dataType: "json",
     }).then(function (response) {
         console.log(response);
-
+        // create cards to dusplay places
     })
     document.getElementById('catOptions').classList.add('hide');
 }
