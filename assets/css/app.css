@@ -1,35 +1,32 @@
-/* NAV-BAR STYLING */
-/* NAVBAR DESKTOP */
-.nav-bar{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: "Times New Roman", Times, serif;
+    margin-bottom: 0px;
+}
+.hide{
+    display: none;
+}
+.title-bar{
     background-color: white;
-    width: 100%;
-    height: 100px;
-    padding: 2% 2%;
-    border-bottom: 3px solid black;
+    box-shadow: 0px 0px 10px #095910;
 }
-.home{
-    float: left;
-}
-.logo{
-    position: fixed;
-    margin-left: 40%;
-    margin-right: auto;
-    margin-top: auto;
-}
-.large {
-    font-size: 1.7rem;
-    color: cornflowerblue;
-}
-.homeClassBtn{
-    background-color: #fff;
-    border: 3px solid black;
+#homeBtn{
+    font-size: 25px;
+    color: white;
+    background-color: transparent;
+    border: 3px solid #095910;
     border-radius: 10px;
     padding: 3px;
-  }
+    box-shadow: 0px 0px 10px #095910;
+}
 .body-container{
     position: relative;
-    width: 57%;
-    margin-top: 20px;
+    width: 85vw;;
+    max-width: 784px;
     margin-bottom: 20px;
     padding-bottom: 20px;
     margin-left: auto;
@@ -39,18 +36,19 @@
     text-align: center;
 }
 .home-screen{
-    width: 70%;
+    width: 80vw;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     text-align: center;
 }
-/* .row{
-    width: 100%;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+select {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 90%;
+    border-radius: 0;
 }
+<<<<<<< HEAD
 .columns{
     padding: 5px;
 } */
@@ -70,4 +68,12 @@ select {
 
 #select {
     width: 50%;
+=======
+#imgContainer{
+    min-height: 30vh;
+    padding: 20px;
+    border-radius: 10px 10px;
+    box-shadow:  0px 0px 18px #095910;
+    box
+>>>>>>> 3b95a1cfb7db1248fe55f81bce90f8310f67754a
 }
