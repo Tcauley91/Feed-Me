@@ -1,11 +1,12 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feed Me</title>
+  <link rel="icon" href="assets/images/favicon-green.jpg" type="image/gif" sizes="16x16">
+  <link href="https://fonts.googleapis.com/css?family=Playball|Unna&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/foundation.css">
   <link rel="stylesheet" href="assets/css/app.css">
   <style>
@@ -18,23 +19,20 @@
     }
   </style>
 </head>
-
 <body>
   <!-- Desktop Navigation -->
   <div class="title-bar">
     <div class="title-bar-left">
-      <span class="title-bar-title">Feed Me</span>
+      <h1 class="title-bar-title" style="font-family:'Playball', cursive; color: #095910;">Feed Me!</h1>
     </div>
     <div class="title-bar-right">
-      <button id="homeBtn" type="button">Home</button>
+      <button id="homeBtn" type="button" style="font-family:'Playball', cursive; color: #095910;">Home</button>
     </div>
   </div>
   <!-- Main body container that will be used on all screen displays -->
   <div class="body-container">
     <!-- Fist initial home screen page will always be shown -->
-    <h2 id="contentHeader">Do you want to..</h2>
-    <hr>
-    <br>
+    <h2 id="contentHeader" style="font-family: 'Unna', serif;">Do you want to..</h2>
     <div class="row" data-equalizer data-equalize-on="large" id="test-eq">
       <div class="large-5 medium-5 columns">
         <div id='imgContainer' class="callout" data-equalizer-watch>
@@ -125,7 +123,6 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-
   <!-- Linking both the main JS & JQuery files from Foundation in the HTML page -->
   <script src="assets/js/vendor/jquery.js"></script>
   <script src="assets/js/vendor/what-input.js"></script>
@@ -133,5 +130,4 @@
   <script src="assets/js/app.js"></script>
   <script src="assets/js/app2.js"></script>
 </body>
-
 </html>
