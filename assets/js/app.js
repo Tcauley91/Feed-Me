@@ -18,8 +18,6 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
         function (position) {
             userLat = position.coords.latitude;
             userLong = position.coords.longitude;
-            console.log(userLat, userLong);
-
             document.getElementById('goingOutImg').classList.add('hide')
             document.getElementById('stayInImg').classList.add('hide')
             document.querySelector('h3').classList.add('hide');
@@ -32,9 +30,7 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
                 headers: { "user-key": "a0916e41597909e8faa9dff1a09e8971" },
                 dataType: "json",
             }).then(function (response) {
-                console.log(response);
                 cityID = response.location.city_id;
-                console.log(cityID);
                 cuisineCat(cityID);
                 document.getElementById('catOptions').classList.remove('hide');
                 document.getElementById('sortSelect').add(new Option('Distance', 'real_distance'));
@@ -43,7 +39,6 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
         },
         // Optional error callback
         function (error) {
-            console.log(error);
             if (error.code === 1) {
                 document.getElementById('modalH').innerText = 'Uh oh';
                 document.getElementById('modalLead').innerText = 'We need your loaction to show you nearby restaurants. Please close this window and try again.';
@@ -79,8 +74,29 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         headers: { "user-key": "a0916e41597909e8faa9dff1a09e8971" },
         dataType: "json",
     }).then(function (response) {
-        console.log(response);
         // create cards to dusplay places
+        console.log(response)
+        response.restaurants.forEach(function(i) {
+            if(parseInt(i.restaurant.price_range) < 1){
+                newP = 'No price data';
+            }else if(parseInt(i.restaurant.price_range) === 1){
+                newP = '$';
+            }else if(parseInt(i.restaurant.price_range) === 2){
+                newP = '$$';
+            }else if(parseInt(i.restaurant.price_range) === 3){
+                newP = '$$$';
+            }else if(parseInt(i.restaurant.price_range) === 4){
+                newP = '$$$$';
+            }else{
+                newP = '$$$$$';
+            }
+            console.log('name ' + i.restaurant.name);
+            let newD = $('<div>').addClass('callout');
+            let newH = $("<h5>").text(i.restaurant.name);
+            let newR = $('<p>').text('Rated ' + i.restaurant.user_rating.aggregate_rating + '  Price ' + newP);
+            newD.append(newH, newR);
+            $("#imgContainer").append(newD);
+        });
     })
     document.getElementById('catOptions').classList.add('hide');
 }
