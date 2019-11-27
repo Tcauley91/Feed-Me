@@ -19,6 +19,12 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
             userLat = position.coords.latitude;
             userLong = position.coords.longitude;
             console.log(userLat, userLong);
+
+            document.getElementById('goingOutImg').classList.add('hide')
+            document.getElementById('stayInImg').classList.add('hide')
+            document.querySelector('h3').classList.add('hide');
+            document.getElementById('contentHeader').innerText = 'What are you in the mood for?';
+            
             let queryUrl = `https://developers.zomato.com/api/v2.1/geocode?lat=${userLat}&lon=${userLong}`
             $.ajax({
                 url: queryUrl,
@@ -30,13 +36,9 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
                 cityID = response.location.city_id;
                 console.log(cityID);
                 cuisineCat(cityID);
+                document.getElementById('catOptions').classList.remove('hide');
                 document.getElementById('sortSelect').add(new Option('Distance', 'real_distance'));
                 document.getElementById('sortSelect').add(new Option('Populartiy', 'rating'));
-                document.getElementById('goingOutImg').classList.add('hide')
-                document.getElementById('stayInImg').classList.add('hide')
-                document.querySelector('h3').classList.add('hide');
-                document.getElementById('contentHeader').innerText = 'What are you in the mood for?';
-                document.getElementById('catOptions').classList.remove('hide');
             })
         },
         // Optional error callback
