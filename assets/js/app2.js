@@ -34,12 +34,31 @@ $("#showDiv").removeClass('hide');
       .then(function(response){
       console.log(response);
 
+    //   pinpoint response wanted
+
       response.results.forEach(results => {
 
-        console.log(results);
+        console.log(results.title);
+        console.log(results.id);
+        console.log(results.readyInMinutes);
 
 
+        // attempt to dump array into HTML
+        
+        // let newDiv = $("<div>").addClass("callout");
 
+        let newDiv = $("<div>").addClass("callout")
+        let title = $("<h5>").text("Title: " + results.title);
+        let timeServings = $("<p>").text("Cook time: " + results.readyInMinutes + " Servings: " + results.servings);
+
+        newDiv.append(title, timeServings);
+        
+        $("#imgContainer").append(newDiv)
+
+        // ("Title: " + title).append(" Cook time: " + readyInMinutes + " Minutes");
+
+
+        
 
     });
 
