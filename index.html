@@ -8,12 +8,13 @@
   <title>Feed Me</title>
   <link rel="stylesheet" href="assets/css/foundation.css">
   <link rel="stylesheet" href="assets/css/app.css">
-  <style>body{
-    background-image: url("assets/images/background_image.jpg");
-    background-size: auto 100%;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-}</style>
+  <style>
+    body {
+      background-image: url("assets/images/background_image.jpg");
+      background-size: auto 100%;
+      background-attachment: fixed;
+    }
+  </style>
 </head>
 
 <body>
@@ -30,99 +31,107 @@
   <div class="body-container">
     <!-- Fist initial home screen page will always be shown -->
     <div class="home-screen">
-      <h2>Select Your Food Options</h2>
+      <h2 id="contentHeader">Do you want to..</h2>
       <hr>
       <br>
       <div class="row" data-equalizer data-equalize-on="large" id="test-eq">
         <div class="large-5 medium-5 columns">
-          <div class="callout" data-equalizer-watch>
+          <div id='imgContainer' class="callout" data-equalizer-watch>
             <img src="assets/images/out-to-eat.jpg" alt="Goin-Out" id="goingOutImg">
             <div class="large-2 medium-2 columns">
-              <h3 style="padding: 4px; text-align: center;"><strong>Or</strong></h3>
+              <h3 id='h3' style="padding: 4px; text-align: center;"><strong>Or</strong></h3>
             </div>
-            <img src="assets/images/home-meal.jpg" alt="Home-meal" id="stayInImg"> 
+            <img src="assets/images/home-meal.jpg" alt="Home-meal" id='stayInImg'>
+            <!-- restaurants search dropdown menus -->
+            <div id="catOptions" class="hide cell medium-6">
+              <label>
+                <select id="catSelect" placeid="select" required><br>
+                  <option disabled selected value="">What kind of food are you in the mood for?</option>
+                </select>
+                <select id="sortSelect" placeid="select" required><br>
+                  <option disabled selected value="">How do you want to sort the results?</option>
+                </select>
+              </label>
+              <a id="searchBTN" class="button">FEED ME!</a>
+            </div>
+            <!-- Cuisine type input selector -->
+            <div class="hide cell medium-6" id="showDiv">
+              <label>
+                <select id="select" required class="cuisineInput">
+                  <option disabled selected value="Choose Cuisine">Choose Cuisine</option>
+                  <option value="African">African</option>
+                  <option value="American">American</option>
+                  <option value="British">British</option>
+                  <option value="Cajun">Cajun</option>
+                  <option value="Caribbean">Caribbean</option>
+                  <option value="Chinese">Chinese</option>
+                  <option value="German">German</option>
+                  <option value="Indian">Indian</option>
+                  <option value="Italian">Italian</option>
+                  <option value="Japanese">Japanese</option>
+                  <option value="Korean">Korean</option>
+                  <option value="Mediterranean">Mediterranean</option>
+                  <option value="Mexican">Mexican</option>
+                  <option value="Thai">Thai</option>
+                  <option value="Vietnamese">Vietnamese</option>
+                </select>
+              </label>
+              <!-- Allergy input selector -->
+              <label>
+                <select id="select" required class="allergyInput">
+                  <option disabled selected value="Avoid Allergies">Avoid Allergies</option>
+                  <option value="Dairy">Diary</option>
+                  <option value="Egg">Egg</option>
+                  <option value="Gluten">Gluten</option>
+                  <option value="Grain">Grain</option>
+                  <option value="Peanut">Peanut</option>
+                  <option value="Seafood">Seafood</option>
+                  <option value="Sesame">Sesame</option>
+                  <option value="Shellfish">Shellfish</option>
+                  <option value="Soy">Soy</option>
+                  <option value="Sulfite">Sulfite(Sulfur)</option>
+                  <option value="Tree Nut">Tree Nut</option>
+                  <option value="Wheat">Wheat</option>
+                </select>
+              </label>
+              <!-- Diet Restriction input -->
+              <label>
+                <select id="select" required class="dietInput">
+                  <option disabled selected value="Diet savvy">Diet Savvy</option>
+                  <option value="Gluten Free">Gluten Free</option>
+                  <option value="Ketogenic">Ketogenic</option>
+                  <option value="Vegetarian">Vegetarian</option>
+                  <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+                  <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+                  <option value="Vegan">Vegan</option>
+                  <option value="Pescetarian">Pescetarian</option>
+                  <option value="Paleo">Paleo</option>
+                  <option value="Primal">Primal</option>
+                  <option value="Whole30">Whole30</option>
+                </select>
+              </label>
+              <button type=submit class="button" id="feedMe">FEED ME!</button>
+            </div>
           </div>
-        </div>
-      </div>
-      <!-- Cuisine type input selector -->
-    <div class="cell medium-6" id="showDiv">
-      <div class=" cell medium-6" id="food-type" style=display:none>
-          <label>
-            <select id="select" required class="cuisineInput">
-              <option disabled selected value="Choose Cuisine">Choose Cuisine</option>
-              <option value="African">African</option>
-              <option value="American">American</option>
-              <option value="British">British</option>
-              <option value="Cajun">Cajun</option>
-              <option value="Caribbean">Caribbean</option>
-              <option value="Chinese">Chinese</option>
-              <option value="German">German</option>
-              <option value="Indian">Indian</option>
-              <option value="Italian">Italian</option>
-              <option value="Japanese">Japanese</option>
-              <option value="Korean">Korean</option>
-              <option value="Mediterranean">Mediterranean</option>
-              <option value="Mexican">Mexican</option>
-              <option value="Thai">Thai</option>
-              <option value="Vietnamese">Vietnamese</option>
-            </select>
-          </label>
-        <!-- Allergy input selector -->
-        <label>
-            <select id="select" required class="allergyInput">
-              <option disabled selected value="Avoid Allergies">Avoid Allergies</option>
-              <option value="Dairy">Diary</option>
-              <option value="Egg">Egg</option>
-              <option value="Gluten">Gluten</option>
-              <option value="Grain">Grain</option>
-              <option value="Peanut">Peanut</option>
-              <option value="Seafood">Seafood</option>
-              <option value="Sesame">Sesame</option>
-              <option value="Shellfish">Shellfish</option>
-              <option value="Soy">Soy</option>
-              <option value="Sulfite">Sulfite(Sulfur)</option>
-              <option value="Tree Nut">Tree Nut</option>
-              <option value="Wheat">Wheat</option>
-            </select>
-          </label>
-          <!-- Diet Restriction input -->
-          <label>
-              <select id="select" required class="dietInput">
-                <option disabled selected value="Diet savvy">Diet Savvy</option>
-                <option value="Gluten Free">Gluten Free</option>
-                <option value="Ketogenic">Ketogenic</option>
-                <option value="Vegetarian">Vegetarian</option>
-                <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
-                <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
-                <option value="Vegan">Vegan</option>
-                <option value="Pescetarian">Pescetarian</option>
-                <option value="Paleo">Paleo</option>
-                <option value="Primal">Primal</option>
-                <option value="Whole30">Whole30</option>
-              </select>
-            </label>
-            <button type=submit class="button" id="feedMe">FEED ME!</button>
         </div>
       </div>
     </div>
   </div>
-  </div>
-  </div>
   <!-- stuff for modals -->
   <div class="reveal" id="Modal1" data-reveal>
-    <h1 id="modalH" ></h1>
+    <h1 id="modalH"></h1>
     <p class="lead" id="modalLead">.</p>
     <button class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+
   <!-- Linking both the main JS & JQuery files from Foundation in the HTML page -->
   <script src="assets/js/vendor/jquery.js"></script>
   <script src="assets/js/vendor/what-input.js"></script>
   <script src="assets/js/vendor/foundation.js"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/app2.js"></script>
-
 </body>
 
 </html>
