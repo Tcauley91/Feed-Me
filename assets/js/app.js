@@ -78,12 +78,13 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         dataType: "json",
     }).then(function (response) {
         console.log(response);
-        
+        let newD;
         // create cards to dusplay places
         response.restaurants.forEach(function(i){
-            let newD = $('<div>').addClass('callout');
-            let newH = $('<h5>').html(i.restaurant.name);
+            newD = $('<div>').addClass('callout');
+            let newH = $('<h5>').html('<strong>'+i.restaurant.name+'</strong>');
             let newP;
+            let newR =  i.restaurant.user_rating.aggregate_rating;
             if(parseInt(i.restaurant.price_range) === 1){
                 newP = '$'
             }else if(parseInt(i.restaurant.price_range) === 2){
@@ -97,10 +98,13 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
             }else{
                 newP = 'No price data'
             }
-            let newI = $('<p>').html('Rated: ' + i.restaurant.user_rating.aggregate_rating + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP);
+            let newI = $('<p>').html('Rated: ' + newR + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP);
             newD.append(newH, newI);
             $('#imgContainer').append(newD);
-        })
+            newD.on('click', function(){
+                joshShutTheFuncUp(response);
+            })
+        })        
     })
     document.getElementById('catOptions').classList.add('hide');
 }
@@ -114,9 +118,11 @@ function cuisineCat(cityID) {
         headers: { "user-key": "a0916e41597909e8faa9dff1a09e8971" },
         dataType: "json",
     }).then(function (response) {
-        console.log(response);
         for (let i = 0; i < response.cuisines.length; i++) {
             document.getElementById('catSelect').add(new Option(response.cuisines[i].cuisine.cuisine_name, response.cuisines[i].cuisine.cuisine_id));
         }
     })
+}
+function joshShutTheFuncUp(){
+    $(Modal1).foundation('open');
 }
