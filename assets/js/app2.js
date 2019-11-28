@@ -31,6 +31,51 @@ $("#showDiv").removeClass('hide');
       .then(function(response){
       console.log(response);
 
+    //   pinpoint response wanted
+
+      response.results.forEach(results => {
+
+        console.log(results.title);
+        console.log(results.id);
+        console.log(results.readyInMinutes);
+
+
+        // attempt to dump array into HTML
+        
+        // let newDiv = $("<div>").addClass("callout");
+
+        let newDiv = $("<div>").addClass("callout")
+        let title = $("<h5>").text("Title: " + results.title);
+        let timeServings = $("<p>").text("Cook time: " + results.readyInMinutes + " Servings: " + results.servings);
+
+        newDiv.append(title, timeServings);
+        
+        $("#imgContainer").append(newDiv)
+
+        // ("Title: " + title).append(" Cook time: " + readyInMinutes + " Minutes");
+
+
+        
 
     });
+
+   
+
+
+    });
+
+    // Grab recipe, prep time & decscripton and display them in $("showDiv") as summary. Via title, cook time, sertvings OR have thumbnail image displayed. Grab selected recipe by "ID" and insert id into - https://api.spoonacular.com/recipes/{id}/information?includeNutrition=true/false- if I want to display nutrition info - new Query URL will have to have new ajax call. to call the new link above. Then display whole recipe after specific card(recipe) is called. example call:
+    // results: Array(10)
+    // 0: {id: 532727, title: "Cajun Black Beans and Rice", readyInMinutes: 30, servings: 4, image: "Cajun-Black-Beans-and-Rice-532727.jpg", …}
+    // 1: {id: 243851, title: "Cajun Courtbouillon", readyInMinutes: 50, servings: 6, image: "Cajun-Courtbouillon-243851.jpg", …}
+    // 2:
+    // id: 549848
+    // image: "30-minute-healthy-cajun-chicken-and-rice-549848.jpg"
+    // imageUrls: ["30-minute-healthy-cajun-chicken-and-rice-549848.jpg"]
+    // readyInMinutes: 30
+    // servings: 4
+    // title: "30 Minute Healthy Cajun Chicken and Rice"
+
+
+
     });

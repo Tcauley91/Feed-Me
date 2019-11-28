@@ -4841,8 +4841,8 @@ html.is-reveal-open {
       left: 0;
       width: 100%;
       max-width: none;
-      height: 100%;
-      min-height: 100%;
+      /* height: 100%;
+      min-height: 100%; */
       margin-left: 0;
       border: 0;
       border-radius: 0; } }

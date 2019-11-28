@@ -62,6 +62,25 @@ select {
     width: 90%;
     border-radius: 0;
 }
+.columns{
+    padding: 5px;
+} */
+
+
+/* TC- CSS */
+select {
+    width: 100%;
+    font-size: 14px;
+}
+
+/* #showDiv {
+    width: 100%;
+    justify-content: space-around;
+} */
+
+#select {
+    width: 50%;
+}
 #imgContainer{
     min-height: 30vh;
     margin-top: 25px;
