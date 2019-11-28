@@ -48,10 +48,32 @@ select {
     width: 90%;
     border-radius: 0;
 }
+<<<<<<< HEAD
+.columns{
+    padding: 5px;
+} */
+
+
+/* TC- CSS */
+select {
+    width: 100%;
+    font-size: 14px;
+}
+
+#showDiv {
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 150px;
+}
+
+#select {
+    width: 50%;
+=======
 #imgContainer{
     min-height: 30vh;
     padding: 20px;
     border-radius: 10px 10px;
     box-shadow:  0px 0px 18px #095910;
     box
+>>>>>>> 3b95a1cfb7db1248fe55f81bce90f8310f67754a
 }
