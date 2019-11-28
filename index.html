@@ -26,19 +26,20 @@
       <h1 class="title-bar-title" style="font-family:'Playball', cursive; color: #095910;">Feed Me!</h1>
     </div>
     <div class="title-bar-right">
-      <button id="homeBtn" type="button" style="font-family:'Playball', cursive; color: #095910;">Home</button>
+      <button id="homeBtn" class="button custom-button" type="button">Home</button>
     </div>
   </div>
   <!-- Main body container that will be used on all screen displays -->
   <div class="body-container">
     <!-- Fist initial home screen page will always be shown -->
-    <h2 id="contentHeader" style="font-family: 'Unna', serif;">Do you want to..</h2>
+
     <div class="row" data-equalizer data-equalize-on="large" id="test-eq">
       <div class="large-5 medium-5 columns">
         <div id='imgContainer' class="callout" data-equalizer-watch>
+            <h2 id="contentHeader" style="font-family: 'Unna', serif;">Select the Following Dining Experince...</h2>
           <img src="assets/images/out-to-eat.jpg" alt="Goin-Out" id="goingOutImg">
           <div class="large-2 medium-2 columns">
-            <h3 id='h3' style="padding: 4px; text-align: center;"><strong>OR</strong></h3>
+              <h3 class="subtitle fancy" style="font-family:'Playball', cursive;"><span>Or</span><h3>
           </div>
           <img src="assets/images/home-meal.jpg" alt="Home-meal" id='stayInImg'>
           <!-- restaurants search dropdown menus -->
@@ -51,7 +52,7 @@
                 <option disabled selected value="">Sort by</option>
               </select>
             </label>
-            <a id="searchBTN" class="button">FEED ME!</a>
+            <a id="searchBTN" class="button custom-button">Feed Me!</a>
           </div>
           <!-- Cuisine type input selector -->
           <div class="hide cell medium-6" id="showDiv">
@@ -109,7 +110,7 @@
                 <option value="Whole30">Whole30</option>
               </select>
             </label>
-            <button type=submit class="button" id="feedMe">FEED ME!</button>
+            <button type=submit class="button custom-button" id="feedMe">Feed Me!</button>
           </div>
         </div>
       </div>
