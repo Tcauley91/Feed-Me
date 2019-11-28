@@ -17,12 +17,6 @@ $("#showDiv").removeClass('hide');
     let allergy = $(".allergyInput").val();
     let diet = $(".dietInput").val();
 
-<<<<<<< HEAD
-    //need If/else statement for when response/results are returning 0 - modal or something similar that will prompt user to go back to previous screen and re input search parameters. OR back button that returns to home page.
-
-
-=======
->>>>>>> 3b95a1cfb7db1248fe55f81bce90f8310f67754a
     // // API Key
      let apiKey = "1bc689dd8d404710b20636ab06a5be1c";
     // // queryURL with search parameters and APPID
@@ -37,7 +31,6 @@ $("#showDiv").removeClass('hide');
       .then(function(response){
       console.log(response);
 
-<<<<<<< HEAD
     //   pinpoint response wanted
 
       response.results.forEach(results => {
@@ -85,8 +78,4 @@ $("#showDiv").removeClass('hide');
 
 
 
-=======
-
-    });
->>>>>>> 3b95a1cfb7db1248fe55f81bce90f8310f67754a
     });
