@@ -78,7 +78,29 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         dataType: "json",
     }).then(function (response) {
         console.log(response);
+        
         // create cards to dusplay places
+        response.restaurants.forEach(function(i){
+            let newD = $('<div>').addClass('callout');
+            let newH = $('<h5>').html(i.restaurant.name);
+            let newP;
+            if(parseInt(i.restaurant.price_range) === 1){
+                newP = '$'
+            }else if(parseInt(i.restaurant.price_range) === 2){
+                newP = '$$'
+            }else if(parseInt(i.restaurant.price_range) === 3){
+                newP = '$$$'
+            }else if(parseInt(i.restaurant.price_range) === 4){
+                newP = '$$$$'
+            }else if(parseInt(i.restaurant.price_range) === 5){
+                newP = '$$$$$'
+            }else{
+                newP = 'No price data'
+            }
+            let newI = $('<p>').html('Rated: ' + i.restaurant.user_rating.aggregate_rating + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP);
+            newD.append(newH, newI);
+            $('#imgContainer').append(newD);
+        })
     })
     document.getElementById('catOptions').classList.add('hide');
 }
