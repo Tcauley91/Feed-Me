@@ -13,15 +13,26 @@ h6{
 .title-bar{
     background-color: white;
     box-shadow: 0px 0px 10px #095910;
+    padding-right: 5%;
+    padding-left: 5%;
 }
-#homeBtn{
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.5s;
+  }
+  .button:hover {
+    background-color: #4CAF50; /* Green */
+    color: #85e69f;
+  }
+.custom-button{
     font-size: 25px;
     color: white;
-    background-color: transparent;
     border: 3px solid #095910;
     border-radius: 10px;
-    padding: 3px;
+    padding: 5px 15px 5px 15px;
     box-shadow: 0px 0px 10px #095910;
+    font-family:'Playball', cursive; color: #095910;
+    background-color: white;
 }
 .body-container{
     position: relative;
@@ -46,34 +57,52 @@ select {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 90%;
-    border-radius: 0;
+    color: black;
 }
-<<<<<<< HEAD
 .columns{
     padding: 5px;
-} */
+} 
 
-
-/* TC- CSS */
-select {
-    width: 100%;
-    font-size: 14px;
-}
-
-#showDiv {
-    width: 100%;
-    justify-content: space-around;
-    margin-top: 150px;
-}
-
-#select {
-    width: 50%;
-=======
 #imgContainer{
     min-height: 30vh;
-    padding: 20px;
+    margin-top: 25px;
+    padding: 10px;
     border-radius: 10px 10px;
     box-shadow:  0px 0px 18px #095910;
-    box
->>>>>>> 3b95a1cfb7db1248fe55f81bce90f8310f67754a
+}
+.fancy {
+    line-height: 1.0;
+    text-align: center;
+  }
+  .fancy span {
+    display: inline-block;
+    position: relative;  
+  }
+  .fancy span:before,
+  .fancy span:after {
+      margin-top: 40%;
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 2px solid #095910;
+    border-top: 2px solid #095910;
+    top: 0;
+    width: 300%;
+  }
+  .fancy span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+  .fancy span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+  #imageTitle{
+    position: relative;
+    bottom:60px;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    color: white;
+    font-family: Georgia, Times,'Times New Roman', serif;
 }

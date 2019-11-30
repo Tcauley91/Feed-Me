@@ -108,3 +108,4 @@ $("#stayInImg").on("click", function(hide){
                     });
                 }); 
             });
+

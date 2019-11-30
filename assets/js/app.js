@@ -5,8 +5,11 @@ $(document).foundation()
 //       display places dynamicaly in cards with small amount of info
 //       if card is clicked launch modal with more detailed info
 //       
-//       
+//      
 //       ???????????
+document.getElementById('homeBtn').addEventListener('click', () => {
+    document.location.reload(true)
+});
 let userLat;
 let userLong;
 let cityID;
@@ -78,7 +81,39 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         dataType: "json",
     }).then(function (response) {
         console.log(response);
-        // create cards to dusplay places
+        document.getElementById('contentHeader').innerText = 'Here are some suggestions.';
+        let newD;
+        // create cards to display places
+        response.restaurants.forEach(function (i) {
+            newD = $('<div>').addClass('callout');
+            let newH = $('<h5>').html('<strong>' + i.restaurant.name + '</strong>');
+            let newP;
+            let newR;
+            if (parseInt(i.restaurant.user_rating.aggregate_rating) == 0) {
+                newR = 'No Rating'
+            } else {
+                newR = i.restaurant.user_rating.aggregate_rating;
+            }
+            if (parseInt(i.restaurant.price_range) === 1) {
+                newP = '$'
+            } else if (parseInt(i.restaurant.price_range) === 2) {
+                newP = '$$'
+            } else if (parseInt(i.restaurant.price_range) === 3) {
+                newP = '$$$'
+            } else if (parseInt(i.restaurant.price_range) === 4) {
+                newP = '$$$$'
+            } else if (parseInt(i.restaurant.price_range) === 5) {
+                newP = '$$$$$'
+            } else {
+                newP = 'No price data'
+            }
+            let newI = $('<p>').html('Rated: ' + newR + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP);
+            newD.append(newH, newI);
+            $('#imgContainer').append(newD);
+            newD.on('click', function () {
+                joshShutTheFuncUp(i);
+            })
+        })
     })
     document.getElementById('catOptions').classList.add('hide');
 }
@@ -92,9 +127,15 @@ function cuisineCat(cityID) {
         headers: { "user-key": "a0916e41597909e8faa9dff1a09e8971" },
         dataType: "json",
     }).then(function (response) {
-        console.log(response);
         for (let i = 0; i < response.cuisines.length; i++) {
             document.getElementById('catSelect').add(new Option(response.cuisines[i].cuisine.cuisine_name, response.cuisines[i].cuisine.cuisine_id));
         }
     })
+}
+function joshShutTheFuncUp(i) {
+    document.getElementById('modalH').innerText = i.restaurant.name;
+    document.getElementById('modalLead').innerText = '';
+    document.getElementById('nutInfo').innerText = i.restaurant.timings;
+    $('#modalPic').attr('src', i.restaurant.thumb);
+    $(Modal1).foundation('open');
 }
