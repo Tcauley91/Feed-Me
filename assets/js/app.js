@@ -84,7 +84,12 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
             newD = $('<div>').addClass('callout');
             let newH = $('<h5>').html('<strong>'+i.restaurant.name+'</strong>');
             let newP;
-            let newR =  i.restaurant.user_rating.aggregate_rating;
+            let newR;
+            if(parseInt(i.restaurant.user_rating.aggregate_rating) == 0){
+                newR = 'No Rating'
+            }else{
+                newR =  i.restaurant.user_rating.aggregate_rating;
+            }
             if(parseInt(i.restaurant.price_range) === 1){
                 newP = '$'
             }else if(parseInt(i.restaurant.price_range) === 2){
@@ -98,11 +103,12 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
             }else{
                 newP = 'No price data'
             }
-            let newI = $('<p>').html('Rated: ' + newR + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP);
+            let ww = $('<img>').src = i.restaurant.thumb;
+            let newI = $('<p>').html('Rated: ' + newR + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP + ww);
             newD.append(newH, newI);
             $('#imgContainer').append(newD);
             newD.on('click', function(){
-                joshShutTheFuncUp(response);
+                joshShutTheFuncUp(i);
             })
         })        
     })
@@ -123,6 +129,12 @@ function cuisineCat(cityID) {
         }
     })
 }
-function joshShutTheFuncUp(){
+function joshShutTheFuncUp(i){
+    document.getElementById('modalH').innerText = i.restaurant.name;
+    document.getElementById('modalLead').innerText = '';
+    let img = document.createElement('img');
+    img.src = i.restaurant.photos_url;
+    (Modal1).append(img);
+    document.getElementById('nutInfo').innerText = i.restaurant.timings;
     $(Modal1).foundation('open');
 }

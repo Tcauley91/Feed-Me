@@ -54,7 +54,22 @@ $("#showDiv").removeClass('hide');
 
         // ("Title: " + title).append(" Cook time: " + readyInMinutes + " Minutes");
 
-
+        newDiv.on("click", function(){
+          console.log(results.id);
+          let id = results.id;
+          let queryURL2 = "https://api.spoonacular.com/recipes/" + id + "/nutritionWidget?&apiKey=" + apiKey + "&defaultCss=true";
+          // let queryURL2 = "https://api.spoonacular.com/recipes/" + id + "/summary?&apiKey=" + apiKey;
+              $.ajax({
+              url: queryURL2,
+              method: "GET",
+              Accept: "text/html",
+              ContentType: "text/html"
+              }).then(function(response){
+              console.log(response);
+              document.getElementById('nutInfo').innerHTML = response;
+              $(Modal1).foundation('open');
+          });
+      });
         
 
     });
