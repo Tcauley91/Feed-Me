@@ -7,12 +7,8 @@ $(document).foundation()
 //       
 //      
 //       ???????????
-document.getElementById('homeBtn').addEventListener('click', ()=>{
-    document.getElementById('goingOutImg').classList.remove('hide')
-    document.getElementById('stayInImg').classList.remove('hide')
-    document.querySelector('h3').classList.remove('hide');
-    document.getElementById('catOptions').classList.add('hide');
-    document.querySelector('callout').style.display="none";
+document.getElementById('homeBtn').addEventListener('click', () => {
+    document.location.reload(true)
 });
 
 
@@ -89,37 +85,37 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         console.log(response);
         let newD;
         // create cards to dusplay places
-        response.restaurants.forEach(function(i){
+        response.restaurants.forEach(function (i) {
             newD = $('<div>').addClass('callout');
-            let newH = $('<h5>').html('<strong>'+i.restaurant.name+'</strong>');
+            let newH = $('<h5>').html('<strong>' + i.restaurant.name + '</strong>');
             let newP;
             let newR;
-            if(parseInt(i.restaurant.user_rating.aggregate_rating) == 0){
+            if (parseInt(i.restaurant.user_rating.aggregate_rating) == 0) {
                 newR = 'No Rating'
-            }else{
-                newR =  i.restaurant.user_rating.aggregate_rating;
+            } else {
+                newR = i.restaurant.user_rating.aggregate_rating;
             }
-            if(parseInt(i.restaurant.price_range) === 1){
+            if (parseInt(i.restaurant.price_range) === 1) {
                 newP = '$'
-            }else if(parseInt(i.restaurant.price_range) === 2){
+            } else if (parseInt(i.restaurant.price_range) === 2) {
                 newP = '$$'
-            }else if(parseInt(i.restaurant.price_range) === 3){
+            } else if (parseInt(i.restaurant.price_range) === 3) {
                 newP = '$$$'
-            }else if(parseInt(i.restaurant.price_range) === 4){
+            } else if (parseInt(i.restaurant.price_range) === 4) {
                 newP = '$$$$'
-            }else if(parseInt(i.restaurant.price_range) === 5){
+            } else if (parseInt(i.restaurant.price_range) === 5) {
                 newP = '$$$$$'
-            }else{
+            } else {
                 newP = 'No price data'
             }
             let ww = $('<img>').src = i.restaurant.thumb;
             let newI = $('<p>').html('Rated: ' + newR + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP + ww);
             newD.append(newH, newI);
             $('#imgContainer').append(newD);
-            newD.on('click', function(){
+            newD.on('click', function () {
                 joshShutTheFuncUp(i);
             })
-        })        
+        })
     })
     document.getElementById('catOptions').classList.add('hide');
 }
@@ -138,12 +134,12 @@ function cuisineCat(cityID) {
         }
     })
 }
-function joshShutTheFuncUp(i){
+function joshShutTheFuncUp(i) {
     document.getElementById('modalH').innerText = i.restaurant.name;
     document.getElementById('modalLead').innerText = '';
-    let img = document.createElement('img');
-    img.src = i.restaurant.photos_url;
-    (Modal1).append(img);
     document.getElementById('nutInfo').innerText = i.restaurant.timings;
+    // let img = document.createElement('img').innerHtml = i.restaurant.thumb;
+    // console.log(i.restaurant.thumb);
+    // (Modal1).append(img);
     $(Modal1).foundation('open');
 }
