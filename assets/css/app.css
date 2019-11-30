@@ -16,9 +16,6 @@ h6{
     padding-right: 5%;
     padding-left: 5%;
 }
-#homeBtn{
-    margin-top: 15px;
-}
 .button {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.5s;
@@ -60,27 +57,12 @@ select {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 90%;
-    border-radius: 0;
+    color: black;
 }
 .columns{
     padding: 5px;
-} */
+} 
 
-
-/* TC- CSS */
-select {
-    width: 100%;
-    font-size: 14px;
-}
-
-/* #showDiv {
-    width: 100%;
-    justify-content: space-around;
-} */
-
-#select {
-    width: 50%;
-}
 #imgContainer{
     min-height: 30vh;
     margin-top: 25px;
@@ -98,7 +80,7 @@ select {
   }
   .fancy span:before,
   .fancy span:after {
-      margin-top: 6px;
+      margin-top: 40%;
     content: "";
     position: absolute;
     height: 5px;
@@ -115,3 +97,12 @@ select {
     left: 100%;
     margin-left: 15px;
   }
+  #imageTitle{
+    position: relative;
+    bottom:60px;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    color: white;
+    font-family: Georgia, Times,'Times New Roman', serif;
+}

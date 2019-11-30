@@ -5,8 +5,17 @@ $(document).foundation()
 //       display places dynamicaly in cards with small amount of info
 //       if card is clicked launch modal with more detailed info
 //       
-//       
+//      
 //       ???????????
+document.getElementById('homeBtn').addEventListener('click', ()=>{
+    document.getElementById('goingOutImg').classList.remove('hide')
+    document.getElementById('stayInImg').classList.remove('hide')
+    document.querySelector('h3').classList.remove('hide');
+    document.getElementById('catOptions').classList.add('hide');
+    document.querySelector('callout').style.display="none";
+});
+
+
 let userLat;
 let userLong;
 let cityID;
