@@ -10,8 +10,6 @@ $(document).foundation()
 document.getElementById('homeBtn').addEventListener('click', () => {
     document.location.reload(true)
 });
-
-
 let userLat;
 let userLong;
 let cityID;
@@ -83,8 +81,9 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         dataType: "json",
     }).then(function (response) {
         console.log(response);
+        document.getElementById('contentHeader').innerText = 'Here are some suggestions.';
         let newD;
-        // create cards to dusplay places
+        // create cards to display places
         response.restaurants.forEach(function (i) {
             newD = $('<div>').addClass('callout');
             let newH = $('<h5>').html('<strong>' + i.restaurant.name + '</strong>');
@@ -108,8 +107,7 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
             } else {
                 newP = 'No price data'
             }
-            let ww = $('<img>').src = i.restaurant.thumb;
-            let newI = $('<p>').html('Rated: ' + newR + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP + ww);
+            let newI = $('<p>').html('Rated: ' + newR + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP);
             newD.append(newH, newI);
             $('#imgContainer').append(newD);
             newD.on('click', function () {
@@ -138,8 +136,6 @@ function joshShutTheFuncUp(i) {
     document.getElementById('modalH').innerText = i.restaurant.name;
     document.getElementById('modalLead').innerText = '';
     document.getElementById('nutInfo').innerText = i.restaurant.timings;
-    // let img = document.createElement('img').innerHtml = i.restaurant.thumb;
-    // console.log(i.restaurant.thumb);
-    // (Modal1).append(img);
+    $('#modalPic').attr('src', i.restaurant.thumb);
     $(Modal1).foundation('open');
 }
