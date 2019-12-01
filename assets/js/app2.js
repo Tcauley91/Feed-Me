@@ -32,6 +32,16 @@ $("#feedMe").on("click", function () {
   })
     .then(function (response) {
       console.log(response);
+      console.log(response.totalResults);
+
+      // function for when response results  is 0 - pop up modal.
+
+      if(response.totalResults === 0){
+        $("#modalH").text("Oops, we coundln't find any recipes for that selection. Please click Home and search again.");
+        $("#modalPic").hide();
+        $(Modal1).foundation("open");
+      
+      }else{
 
       //   pinpoint response wanted
 
@@ -40,6 +50,8 @@ $("#feedMe").on("click", function () {
         console.log(results.id);
         console.log(results.readyInMinutes);
 
+       
+
         // assign new div and add content in callout
         $("#contentHeader").text("Here are some suggestions.")
         let newDiv = $("<div>").addClass("callout");
@@ -47,6 +59,7 @@ $("#feedMe").on("click", function () {
         let timeServings = $("<p>").text("Cook time: " + results.readyInMinutes + " Servings: " + results.servings);
         newDiv.append(title, timeServings);
         $("#imgContainer").append(newDiv);
+        
 
         newDiv.on("click", function (event) {
           event.preventDefault();
@@ -91,10 +104,11 @@ $("#feedMe").on("click", function () {
                 console.log(step);
                 
                 $("#nutInfo").append(list).append(steps);
+              
               });
             });
           });
         });
-      });
+    })};
     });
-});
+  });
