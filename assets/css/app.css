@@ -106,3 +106,27 @@ select {
     color: white;
     font-family: Georgia, Times,'Times New Roman', serif;
 }
+.float-left{
+  float: left;
+  margin-right: 3%;
+}
+.loader {
+  border: 16px solid #F3F3F3;
+  border-radius: 50%;
+  border-top: 16px solid #095910;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+  display: none;
+  margin: auto;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

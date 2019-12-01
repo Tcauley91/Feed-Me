@@ -17,6 +17,7 @@
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
+      min-height: 100%;
     }
   </style>
 </head>
@@ -58,6 +59,7 @@
             </label>
             <a id="searchBTN" class="button custom-button">Feed Me!</a>
           </div>
+          <div class="loader"></div>
           <!-- Cuisine type input selector -->
           <div class="hide cell medium-6" id="showDiv">
             <label>
@@ -123,10 +125,9 @@
   <!-- stuff for modals -->
   <div class="reveal" id="Modal1" data-reveal>
     <h1 id="modalH"></h1>
-    <img src="" alt='No picture available' id="modalPic">
-    <p class="lead" id="modalLead">.</p>
+    <img src="" id="modalPic">
+    <p class="lead" id="modalLead"></p>
     <p id='nutInfo'></p>
-    <p id='nutInfo2'></p>
     <button class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
