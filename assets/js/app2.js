@@ -19,7 +19,7 @@ $("#feedMe").on("click", function () {
 
 
   // // API Key
-  let apiKey = "1bc689dd8d404710b20636ab06a5be1c";
+  let apiKey = "6c135f5bf8784ee3aaf4abfcb4f56940";
   // // queryURL with search parameters and APPID
   let queryURL = "https://api.spoonacular.com/recipes/search?&query=" + cuisine + "&allergy=" + allergy + "&diet=" + diet + "&apiKey=" + apiKey;
 
@@ -66,43 +66,42 @@ $("#feedMe").on("click", function () {
             ContentType: "application/json"
 
           }).then(function (response) {
+            
 
             console.log(response);
 
             document.getElementById('nutInfo').innerHTML = response;
-            $("#nutInfo").append($("#searchBTN").addClass("button"));
+            $('.spoonacular-ingredients-menu').hide();
             $(Modal1).foundation("open");
 
-            $("#searchBTN").on("click", function (event) {
-              event.preventDefault();
+            let queryURL3 = "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?&apiKey=" + apiKey + "&stepBreakdown=true";
 
-              let queryURL3 = "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?&apiKey=" + apiKey + "&stepBreakdown=true";
+            $.ajax({
+              url: queryURL3,
+              method: "GET",
+              ContentType: "application/json",
 
-              $.ajax({
-                url: queryURL3,
-                method: "GET",
-                ContentType: "application/json",
+            }).then(function (response) {
+              
 
-              }).then(function (response) {
+              console.log(response);
+              console.log(response[0].steps);
+              console.log(response[0].steps.step);
 
-                console.log(response);
-                console.log(response[0].steps);
-                console.log(response[0].steps.step);
+              let list = $("ul");
 
-                let list = $("ul");
+              response[0].steps.forEach(step => {
 
-                response[0].steps.forEach(step => {
+                let steps = $("<li>").text(step.step);
 
-                  let steps = $("<li>").text(step.step);
+                // console.log(response[0].steps.step);
+                console.log(step);
+                
 
-                  // console.log(response[0].steps.step);
-                  console.log(step);
-
-                  $("#nutInfo2").append(list).append(steps);
-                  $(Modal1).foundation("open");
-                });
+                $("#nutInfo").append(list).append(steps);
               });
             });
+
           });
         });
       });
