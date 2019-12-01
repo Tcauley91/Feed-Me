@@ -37,7 +37,8 @@ $("#feedMe").on("click", function () {
       // function for when response results  is 0 - pop up modal.
 
       if(response.totalResults === 0){
-        $("#modalH").text("Oops, we coundln't find any recipes for that selection. Please click Home and search again.");
+        $("#modalH").text("Oops!");
+        $("#modalLead").text("We coundln't find any recipes for that selection. Please click Home and search again.");
         $("#modalPic").hide();
         $(Modal1).foundation("open");
       
@@ -55,7 +56,7 @@ $("#feedMe").on("click", function () {
         // assign new div and add content in callout
         $("#contentHeader").text("Here are some suggestions.")
         let newDiv = $("<div>").addClass("callout");
-        let title = $("<h5>").text("Title: " + results.title);
+        let title = $("<strong><h5><strong>").text("Title: " + results.title);
         let timeServings = $("<p>").text("Cook time: " + results.readyInMinutes + " Servings: " + results.servings);
         newDiv.append(title, timeServings);
         $("#imgContainer").append(newDiv);
