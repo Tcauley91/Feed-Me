@@ -78,9 +78,6 @@ $("#feedMe").on("click", function () {
 
             console.log(response);
 
-            $("#modalPic").hide();
-           
-
             document.getElementById('nutInfo').innerHTML = response;
             $('.spoonacular-ingredients-menu').hide();
             $(Modal1).foundation("open");
@@ -96,14 +93,14 @@ $("#feedMe").on("click", function () {
               console.log(response[0].steps);
               console.log(response[0].steps.step);
 
-              let list = $("ul");
-              response[0].steps.forEach(step => {
+                let list = $("ul");
+                response[0].steps.forEach(step => {
+
                 let steps = $("<li>").text(step.step);
+                let image = "https://spoonacular.com/recipeImages/" + id + "-480x360.jpg";
 
-                // console.log(response[0].steps.step);
-
-                console.log(step);
-                
+                  console.log(step);
+                $("#modalPic").attr("src", image);
                 $("#nutInfo").append(list).append(steps);
               
               });
