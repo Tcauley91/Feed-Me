@@ -97,7 +97,7 @@ $("#feedMe").on("click", function () {
                 response[0].steps.forEach(step => {
 
                 let steps = $("<li>").text(step.step);
-                let image = "https://spoonacular.com/recipeImages/" + id + "-480x360.jpg";
+                let image = "https://spoonacular.com/recipeImages/" + id + "-312x231.jpg";
 
                   console.log(step);
                 $("#modalPic").attr("src", image);
