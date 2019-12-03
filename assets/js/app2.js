@@ -75,6 +75,7 @@ $("#feedMe").on("click", function () {
             Accept: "text/html",
             ContentType: "application/json"
           }).then(function (response) {
+            
 
             console.log(response);
 
@@ -83,6 +84,7 @@ $("#feedMe").on("click", function () {
             $(Modal1).foundation("open");
 
             let queryURL3 = "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?&apiKey=" + apiKey + "&stepBreakdown=true";
+            
             $.ajax({
               url: queryURL3,
               method: "GET",
@@ -105,6 +107,7 @@ $("#feedMe").on("click", function () {
               
               });
             });
+
           });
         });
     })};

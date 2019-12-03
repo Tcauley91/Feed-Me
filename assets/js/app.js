@@ -46,16 +46,30 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
         function (error) {
             console.log(error);
             if (error.code === 1) {
+                document.getElementById('modalPic').classList.add('hide');
                 document.getElementById('modalH').innerText = 'Uh oh';
                 document.getElementById('modalLead').innerText = 'We need your loaction to show you nearby restaurants. Please close this window and try again.';
                 $(Modal1).foundation('open');
             } else {
+                document.getElementById('modalPic').classList.add('hide');
                 document.getElementById('modalH').innerText = 'Uh oh';
                 document.getElementById('modalLead').innerText = 'Something went wrong. Please close this window and try again.';
                 $(Modal1).foundation('open');
             }
         }
     )
+});
+$(document).ready(function () {
+    $(document).ajaxStart(function () {
+        document.getElementById('goingOutImg').classList.add('hide')
+        document.getElementById('stayInImg').classList.add('hide')
+        document.querySelector('h3').classList.add('hide');
+        document.getElementById('contentHeader').classList.add('hide');
+        $(".loader").show();
+    }).ajaxStop(function () {
+        document.getElementById('contentHeader').classList.remove('hide');
+        $(".loader").hide();
+    });
 });
 // on click for search button 
 document.getElementById('searchBTN').addEventListener('click', () => {
@@ -86,7 +100,7 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         // create cards to display places
         response.restaurants.forEach(function (i) {
             newD = $('<div>').addClass('callout');
-            let newH = $('<h5>').html('<strong>' + i.restaurant.name + '</strong>');
+            let newH = $('<h3>').html('<strong>' + i.restaurant.name + '</strong>');
             let newP;
             let newR;
             if (parseInt(i.restaurant.user_rating.aggregate_rating) == 0) {
@@ -107,7 +121,7 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
             } else {
                 newP = 'No price data'
             }
-            let newI = $('<p>').html('Rated: ' + newR + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP);
+            let newI = $('<p>').html('Rated: ' + newR + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + newP.fontcolor('#095910'));
             newD.append(newH, newI);
             $('#imgContainer').append(newD);
             newD.on('click', function () {
@@ -133,9 +147,16 @@ function cuisineCat(cityID) {
     })
 }
 function joshShutTheFuncUp(i) {
-    document.getElementById('modalH').innerText = i.restaurant.name;
+    document.getElementById('modalH').classList.add('text-center');
+    document.getElementById('modalH').innerHTML = i.restaurant.name.bold();
     document.getElementById('modalLead').innerText = '';
-    document.getElementById('nutInfo').innerText = i.restaurant.timings;
-    $('#modalPic').attr('src', i.restaurant.thumb);
+    document.getElementById('nutInfo').innerHTML = '<strong>Hours: </strong>' + i.restaurant.timings;
+    document.getElementById('modalPic').classList.remove('hide');
+    document.getElementById('modalPic').classList.add('float-left');
+    if (i.restaurant.thumb === "") {
+        $('#modalPic').attr('src', 'assets/images/no-image-available.jpg');
+    } else {
+        $('#modalPic').attr('src', i.restaurant.thumb);
+    }
     $(Modal1).foundation('open');
 }
