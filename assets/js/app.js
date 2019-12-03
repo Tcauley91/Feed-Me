@@ -1,15 +1,8 @@
 $(document).foundation()
-// TODO: 
-//       
-//       use cusine type and lat/long to generate list of places
-//       display places dynamicaly in cards with small amount of info
-//       if card is clicked launch modal with more detailed info
-//       
-//      
-//       ???????????
 document.getElementById('homeBtn').addEventListener('click', () => {
     document.location.reload(true)
 });
+let test;
 let userLat;
 let userLong;
 let cityID;
@@ -19,9 +12,9 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
     navigator.geolocation.getCurrentPosition(
         // Success callback
         function (position) {
+            document.getElementById('contentHeader').classList.add('hide');
             userLat = position.coords.latitude;
             userLong = position.coords.longitude;
-            console.log(userLat, userLong);
             let queryUrl = `https://developers.zomato.com/api/v2.1/geocode?lat=${userLat}&lon=${userLong}`
             $.ajax({
                 url: queryUrl,
@@ -29,22 +22,17 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
                 headers: { "user-key": "a0916e41597909e8faa9dff1a09e8971" },
                 dataType: "json",
             }).then(function (response) {
-                console.log(response);
                 cityID = response.location.city_id;
-                console.log(cityID);
                 cuisineCat(cityID);
                 document.getElementById('sortSelect').add(new Option('Distance', 'real_distance'));
                 document.getElementById('sortSelect').add(new Option('Populartiy', 'rating'));
-                document.getElementById('goingOutImg').classList.add('hide')
-                document.getElementById('stayInImg').classList.add('hide')
-                document.querySelector('h3').classList.add('hide');
+                document.getElementById('contentHeader').classList.remove('hide');
                 document.getElementById('contentHeader').innerText = 'What are you in the mood for?';
                 document.getElementById('catOptions').classList.remove('hide');
             })
         },
         // Optional error callback
         function (error) {
-            console.log(error);
             if (error.code === 1) {
                 document.getElementById('modalPic').classList.add('hide');
                 document.getElementById('modalH').innerText = 'Uh oh';
@@ -59,16 +47,15 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
         }
     )
 });
-$(document).ready(function () {
+$(function () {
     $(document).ajaxStart(function () {
         document.getElementById('goingOutImg').classList.add('hide')
         document.getElementById('stayInImg').classList.add('hide')
         document.querySelector('h3').classList.add('hide');
-        document.getElementById('contentHeader').classList.add('hide');
         $(".loader").show();
     }).ajaxStop(function () {
-        document.getElementById('contentHeader').classList.remove('hide');
         $(".loader").hide();
+        document.getElementById('contentHeader').classList.remove('hide');
     });
 });
 // on click for search button 
@@ -87,6 +74,8 @@ document.getElementById('searchBTN').addEventListener('click', () => {
 })
 // api call get information about restaurants to be displayed later
 function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
+    document.getElementById('contentHeader').classList.add('hide');
+    document.getElementById('catOptions').classList.add('hide');
     let queryUrl = `https://developers.zomato.com/api/v2.1/search?lat=${userLat}&lon=${userLong}&cuisines=${userCuisine}&sort=${userSort}&order=${order}`;
     $.ajax({
         url: queryUrl,
@@ -94,8 +83,8 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         headers: { "user-key": "a0916e41597909e8faa9dff1a09e8971" },
         dataType: "json",
     }).then(function (response) {
-        console.log(response);
         document.getElementById('contentHeader').innerText = 'Here are some suggestions.';
+        document.getElementById('contentHeader').classList.remove('hide');
         let newD;
         // create cards to display places
         response.restaurants.forEach(function (i) {
@@ -106,7 +95,13 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
             if (parseInt(i.restaurant.user_rating.aggregate_rating) == 0) {
                 newR = 'No Rating'
             } else {
-                newR = i.restaurant.user_rating.aggregate_rating;
+                if (parseInt(i.restaurant.user_rating.aggregate_rating) < 1.8) {
+                    newR = i.restaurant.user_rating.aggregate_rating.fontcolor('#cc4b37');
+                } else if (parseInt(i.restaurant.user_rating.aggregate_rating) > 3.3) {
+                    newR = i.restaurant.user_rating.aggregate_rating.fontcolor('#095910');
+                } else {
+                    newR = i.restaurant.user_rating.aggregate_rating.fontcolor('#ffae00');
+                }
             }
             if (parseInt(i.restaurant.price_range) === 1) {
                 newP = '$'
@@ -129,7 +124,6 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
             })
         })
     })
-    document.getElementById('catOptions').classList.add('hide');
 }
 // api call gets all food categories in the area
 // creates options for the dropdown
