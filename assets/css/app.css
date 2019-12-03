@@ -111,15 +111,21 @@ select {
   margin-right: 3%;
 }
 .loader {
+  position: fixed;
   border: 16px solid #F3F3F3;
   border-radius: 50%;
   border-top: 16px solid #095910;
-  width: 80px;
-  height: 80px;
+  box-shadow: 0px 0px 10px #095910;
+  width: 100px;
+  height: 100px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 1s linear infinite;
   display: none;
-  margin: auto;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0px 0px -50px;
+  
 }
 /* Safari */
 @-webkit-keyframes spin {
