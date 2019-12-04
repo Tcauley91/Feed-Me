@@ -47,6 +47,7 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
 });
 $(function () {
     $(document).ajaxStart(function () {
+        document.querySelector('.body-container').classList.add('hide');
         document.getElementById('goingOutImg').classList.add('hide')
         document.getElementById('stayInImg').classList.add('hide')
         document.querySelector('h3').classList.add('hide');
@@ -55,6 +56,7 @@ $(function () {
     }).ajaxStop(function () {
         document.getElementById('loaderBg').classList.add('hide');
         $(".loader").hide();
+        document.querySelector('.body-container').classList.remove('hide');
         document.getElementById('contentHeader').classList.remove('hide');
     });
 });
