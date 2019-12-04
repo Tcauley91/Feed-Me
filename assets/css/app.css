@@ -1,6 +1,6 @@
 body{
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 h1,
 h2,
@@ -142,6 +142,6 @@ select {
 #loaderBg{
   background-color: rgba(10, 10, 10, 0.45);
   width: 100vw;
-  height: 100vh;
+  height: 92.8vh;
   z-index: 1007;
 }
