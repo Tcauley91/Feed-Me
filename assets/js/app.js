@@ -88,8 +88,17 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         document.getElementById('contentHeader').innerText = 'Here are some suggestions.';
         document.getElementById('contentHeader').classList.remove('hide');
         let newD;
+        let loadImgs = new Array()
+        function imgPreload() {
+            for (j = 0; j < response.restaurants.length; j++) {
+                loadImgs[j] = new Image()
+                loadImgs[j].src = imgPreload.arguments[j]
+            }
+        }
         // create cards to display places
         response.restaurants.forEach(function (i) {
+            // img preload
+            imgPreload(i.restaurant.thumb);
             newD = $('<div>').addClass('callout');
             let newH = $('<h3>').html('<strong>' + i.restaurant.name + '</strong>');
             let newP;
@@ -143,7 +152,6 @@ function cuisineCat(cityID) {
     })
 }
 function joshShutTheFuncUp(i) {
-    console.log(i);
     document.getElementById('modalH').classList.add('text-center');
     document.getElementById('modalH').innerHTML = i.restaurant.name.bold();
     document.getElementById('modalLead').innerText = '';
