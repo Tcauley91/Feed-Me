@@ -24,8 +24,6 @@ document.getElementById('goingOutImg').addEventListener('click', () => {
             }).then(function (response) {
                 cityID = response.location.city_id;
                 cuisineCat(cityID);
-                document.getElementById('sortSelect').add(new Option('Distance', 'real_distance'));
-                document.getElementById('sortSelect').add(new Option('Populartiy', 'rating'));
                 document.getElementById('contentHeader').classList.remove('hide');
                 document.getElementById('contentHeader').innerText = 'What are you in the mood for?';
                 document.getElementById('catOptions').classList.remove('hide');
@@ -143,10 +141,11 @@ function cuisineCat(cityID) {
     })
 }
 function joshShutTheFuncUp(i) {
+    console.log(i);
     document.getElementById('modalH').classList.add('text-center');
     document.getElementById('modalH').innerHTML = i.restaurant.name.bold();
     document.getElementById('modalLead').innerText = '';
-    document.getElementById('nutInfo').innerHTML = '<strong>Hours: </strong>' + i.restaurant.timings + '<br> <a href=http://www.google.com/search?q=' + i.restaurant.name +'>' + i.restaurant.name + '</a>';
+    document.getElementById('nutInfo').innerHTML = '<strong>Hours: </strong>' + i.restaurant.timings + '<br> <a href=' + i.restaurant.url + '> View more details </a>';
     document.getElementById('modalPic').classList.remove('hide');
     document.getElementById('modalPic').classList.add('float-left');
     if (i.restaurant.thumb === "") {
