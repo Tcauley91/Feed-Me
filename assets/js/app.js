@@ -144,7 +144,7 @@ function joshShutTheFuncUp(i) {
     document.getElementById('modalH').classList.add('text-center');
     document.getElementById('modalH').innerHTML = i.restaurant.name.bold();
     document.getElementById('modalLead').innerText = '';
-    document.getElementById('nutInfo').innerHTML = '<strong>Hours: </strong>' + i.restaurant.timings + '<br><a href=http://www.google.com/search?q=' + i.restaurant.name +'>' + i.restaurant.name + '</a>';
+    document.getElementById('nutInfo').innerHTML = '<strong>Hours: </strong>' + i.restaurant.timings + '<br> <a href=http://www.google.com/search?q=' + i.restaurant.name +'>' + i.restaurant.name + '</a>';
     document.getElementById('modalPic').classList.remove('hide');
     document.getElementById('modalPic').classList.add('float-left');
     if (i.restaurant.thumb === "") {
