@@ -52,8 +52,10 @@ $(function () {
         document.getElementById('goingOutImg').classList.add('hide')
         document.getElementById('stayInImg').classList.add('hide')
         document.querySelector('h3').classList.add('hide');
+        document.getElementById('loaderBg').classList.remove('hide');
         $(".loader").show();
     }).ajaxStop(function () {
+        document.getElementById('loaderBg').classList.add('hide');
         $(".loader").hide();
         document.getElementById('contentHeader').classList.remove('hide');
     });
