@@ -97,6 +97,7 @@ function renderPlaces(userLat, userLong, userCuisine, userSort, order) {
         }
         // create cards to display places
         response.restaurants.forEach(function (i) {
+            console.log(i);
             // img preload
             imgPreload(i.restaurant.thumb);
             newD = $('<div>').addClass('callout');
@@ -155,9 +156,10 @@ function joshShutTheFuncUp(i) {
     document.getElementById('modalH').classList.add('text-center');
     document.getElementById('modalH').innerHTML = i.restaurant.name.bold();
     document.getElementById('modalLead').innerText = '';
-    document.getElementById('nutInfo').innerHTML = '<strong>Hours: </strong>' + i.restaurant.timings + '<br> <a href=' + i.restaurant.url + '> View more details </a>';
+    document.getElementById('nutInfo').innerHTML = '<strong>Hours: </strong>' + i.restaurant.timings;
+    document.getElementById('nutInfo2').innerHTML = '<strong>Located in </strong>' + i.restaurant.location.locality + '<strong> At </strong>' + i.restaurant.location.address + '<br> <a href=' + i.restaurant.url + '> View more details </a>';
     document.getElementById('modalPic').classList.remove('hide');
-    document.getElementById('modalPic').classList.add('float-left');
+    document.getElementById('modalPic').classList.add('float-center');
     if (i.restaurant.thumb === "") {
         $('#modalPic').attr('src', 'assets/images/no-image-available.jpg');
     } else {
