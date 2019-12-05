@@ -111,10 +111,6 @@ select {
     color: white;
     font-family: Georgia, Times,'Times New Roman', serif;
 }
-.float-left{
-  float: left;
-  margin-right: 3%;
-}
 .loader {
   position: fixed;
   border: 16px solid #F3F3F3;
