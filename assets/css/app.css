@@ -1,3 +1,8 @@
+body{
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
 h1,
 h2,
 h3,
@@ -106,20 +111,21 @@ select {
     color: white;
     font-family: Georgia, Times,'Times New Roman', serif;
 }
-.float-left{
-  float: left;
-  margin-right: 3%;
-}
 .loader {
+  position: fixed;
   border: 16px solid #F3F3F3;
   border-radius: 50%;
   border-top: 16px solid #095910;
-  width: 80px;
-  height: 80px;
+  box-shadow: 0px 0px 10px #095910;
+  width: 100px;
+  height: 100px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 1s linear infinite;
   display: none;
-  margin: auto;
+  z-index: 1008;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0px 0px -50px;
 }
 /* Safari */
 @-webkit-keyframes spin {
@@ -129,4 +135,10 @@ select {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+#loaderBg{
+  background-color: rgba(10, 10, 10, 0.45);
+  width: 100vw;
+  height: 92.8vh;
+  z-index: 1007;
 }
