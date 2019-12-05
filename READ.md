@@ -6,17 +6,18 @@
 <br>
 This deployed application can be viewed at: https://tcauley91.github.io/Feed-Me/
 <br>
+Made with HTML and CSS powered by JavaScript and JQuery
 This application allows users to find local restaurants and recipes according to the user’s inputs. The scope of this application was to showcase a website having full functionality using JavaScript, two API’S along with a responsive CSS platform Foundation. The basic layout structure of the website can be seen below in the following images. 
 <br>
-![image](https://raw.githubusercontent.com/Tcauley91/Feed-Me/master/assets/images/home-screen.JPG)
+![image](https://raw.githubusercontent.com/Tcauley91/Feed-Me/master/assets/images/home-screen.jpg)
 <br>
 The user will be initially prompted two selections of either "Going Out" or "Staying In" (seen above). With a user selection of "Going Out" a geolocation tracker will display and call for the API "Zomato". Second step of this will allow the user to make selections of "Cuisine Type" and "Sort Functionality". Once correctly filled out a list will appear with restaurants either shown closest in distance away from the user or by popularity (image shown below). Upon selecting a restaurant, a modle will display showing an image from the restaurant, hours of operation, address and more information options. 
 <br>
-![image](https://raw.githubusercontent.com/Tcauley91/Feed-Me/master/assets/images/restaurant-screen.JPG)
+![image](https://raw.githubusercontent.com/Tcauley91/Feed-Me/master/assets/images/restaurant-screen.jpg)
 <br>
 If the user decides to select from the HOME screen to "Staying In" then the second API "Spoonacular" will launch, and prompt the user to choose "Cuisine", "Avoid Allergies", "Diet". Once the user makes their selections a list will appear of ready to make recipes (image shown below). User can then select the recipe then a modle will display a photo of the meal, ingredients list and cooking instructions. 
 <br>
-![image](https://raw.githubusercontent.com/Tcauley91/Feed-Me/master/assets/images/recipe-screen.JPG)
+![image](https://raw.githubusercontent.com/Tcauley91/Feed-Me/master/assets/images/recipe-screen.jpg)
 <hr>
 <h3>Future Development</h3>
 <br>
